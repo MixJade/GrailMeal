@@ -37,12 +37,12 @@
             <scope>test</scope>
         </dependency>
         <!--lombok简化注解-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
-            <scope>provided</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.projectlombok</groupId>-->
+<!--            <artifactId>lombok</artifactId>-->
+<!--            <version>1.18.24</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
         <!--代码生成器-->
         <dependency>
             <groupId>com.baomidou</groupId>
