@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  * </p>
  *
  * @author MixJade
- * @since 2022-11-20
+ * @since 2022-11-21
  */
 @RestController
 @RequestMapping("/dishFlavor")

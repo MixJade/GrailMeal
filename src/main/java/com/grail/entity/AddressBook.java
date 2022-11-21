@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author MixJade
- * @since 2022-11-20
+ * @since 2022-11-21
  */
 @TableName("address_book")
 public class AddressBook implements Serializable {

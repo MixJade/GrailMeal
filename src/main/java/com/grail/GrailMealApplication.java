@@ -10,6 +10,6 @@ public class GrailMealApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(GrailMealApplication.class, args);
-        log.info("赤杯餐饮启动");
+        log.info("赤杯餐饮启动,登录地址:http://localhost:8080/");
     }
 }

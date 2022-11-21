@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author MixJade
- * @since 2022-11-20
+ * @since 2022-11-21
  */
 @TableName("shopping_cart")
 public class ShoppingCart implements Serializable {
