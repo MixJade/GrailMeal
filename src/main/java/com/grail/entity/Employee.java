@@ -1,8 +1,5 @@
 package com.grail.entity;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
-
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -23,7 +20,6 @@ public class Employee implements Serializable {
     /**
      * 主键
      */
-    @JsonSerialize(using= ToStringSerializer.class)
     private Long id;
 
     /**
