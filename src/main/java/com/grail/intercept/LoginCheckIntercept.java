@@ -2,6 +2,7 @@ package com.grail.intercept;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.grail.common.Result;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -13,7 +14,7 @@ public class LoginCheckIntercept implements HandlerInterceptor {
     private static final Logger log = LoggerFactory.getLogger(LoginCheckIntercept.class);
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull Object handler) throws Exception {
         String requestURI = request.getRequestURI();
         log.info("拦截到请求：{}", requestURI);
         // 进行登录判断
