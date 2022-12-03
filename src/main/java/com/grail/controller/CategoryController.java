@@ -53,13 +53,12 @@ public class CategoryController {
     }
 
     /**
-     * 根据id删除分类
+     * 根据id删除分类,删除前判断是否有菜品关联
      */
     @DeleteMapping
-    public Result<String> delete(Long id) {
-        log.info("删除分类，id为：{}", id);
-//        categoryService.removeById(id);
-//        categoryService.remove(id);
+    public Result<String> delete(Long ids) {
+        log.info("删除分类，id为：{}", ids);
+        categoryService.remove(ids);
         return Result.success("分类信息删除成功");
     }
 

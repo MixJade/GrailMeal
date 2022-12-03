@@ -12,5 +12,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2022-11-21
  */
 public interface ICategoryService extends IService<Category> {
-
+    void remove(Long id);
 }
