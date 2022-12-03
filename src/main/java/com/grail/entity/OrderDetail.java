@@ -10,7 +10,7 @@ import java.math.BigDecimal;
  * </p>
  *
  * @author MixJade
- * @since 2022-11-21
+ * @since 2022-12-03
  */
 @TableName("order_detail")
 public class OrderDetail implements Serializable {

@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author MixJade
- * @since 2022-11-21
+ * @since 2022-12-03
  */
 public class Employee implements Serializable {
 
@@ -63,25 +63,25 @@ public class Employee implements Serializable {
     /**
      * 创建时间
      */
-    @TableField(fill = FieldFill.INSERT) //插入时填充字段
+    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
-    @TableField(fill = FieldFill.INSERT_UPDATE) //插入和更新时填充字段
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 
     /**
      * 创建人
      */
-    @TableField(fill = FieldFill.INSERT) //插入时填充字段
+    @TableField(fill = FieldFill.INSERT)
     private Long createUser;
 
     /**
      * 修改人
      */
-    @TableField(fill = FieldFill.INSERT_UPDATE) //插入和更新时填充字段
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Long updateUser;
 
     public Long getId() {

@@ -1,8 +1,10 @@
 package com.grail;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
+import com.baomidou.mybatisplus.generator.fill.Column;
 
 import java.util.Collections;
 
@@ -23,6 +25,12 @@ public class CodeGenerator {
                 }).templateEngine(new FreemarkerTemplateEngine()) // 使用Freemarker引擎模板，默认的是Velocity引擎模板
                 .strategyConfig(builder -> {
                     builder.entityBuilder().enableFileOverride()
+                            .addTableFills(
+                                    new Column("create_time", FieldFill.INSERT),
+                                    new Column("create_user", FieldFill.INSERT),
+                                    new Column("update_time", FieldFill.INSERT_UPDATE),
+                                    new Column("update_user", FieldFill.INSERT_UPDATE)
+                            )
                             .mapperBuilder().enableFileOverride().enableMapperAnnotation()
                             .serviceBuilder().enableFileOverride()
                             .controllerBuilder().enableFileOverride().enableRestStyle();

@@ -8,7 +8,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author MixJade
- * @since 2022-11-21
+ * @since 2022-12-03
  */
 public class User implements Serializable {
 

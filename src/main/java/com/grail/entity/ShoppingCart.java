@@ -1,5 +1,7 @@
 package com.grail.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -11,7 +13,7 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author MixJade
- * @since 2022-11-21
+ * @since 2022-12-03
  */
 @TableName("shopping_cart")
 public class ShoppingCart implements Serializable {
@@ -66,6 +68,7 @@ public class ShoppingCart implements Serializable {
     /**
      * 创建时间
      */
+    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
     public Long getId() {
