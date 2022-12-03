@@ -1,5 +1,8 @@
 package com.grail.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -60,21 +63,25 @@ public class Employee implements Serializable {
     /**
      * 创建时间
      */
+    @TableField(fill = FieldFill.INSERT) //插入时填充字段
     private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
+    @TableField(fill = FieldFill.INSERT_UPDATE) //插入和更新时填充字段
     private LocalDateTime updateTime;
 
     /**
      * 创建人
      */
+    @TableField(fill = FieldFill.INSERT) //插入时填充字段
     private Long createUser;
 
     /**
      * 修改人
      */
+    @TableField(fill = FieldFill.INSERT_UPDATE) //插入和更新时填充字段
     private Long updateUser;
 
     public Long getId() {

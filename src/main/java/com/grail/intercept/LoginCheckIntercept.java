@@ -1,6 +1,7 @@
 package com.grail.intercept;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.grail.common.BaseContext;
 import com.grail.common.Result;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -18,7 +19,10 @@ public class LoginCheckIntercept implements HandlerInterceptor {
         String requestURI = request.getRequestURI();
         log.info("拦截到请求：{}", requestURI);
         // 进行登录判断
-        if (request.getSession().getAttribute("employee") != null) {
+        Object employeeID=request.getSession().getAttribute("employee");
+        if (employeeID!= null) {
+            Long empId = (Long) employeeID;
+            BaseContext.setCurrentId(empId);
             return true;
         } else {
             log.info("用户未登录");
