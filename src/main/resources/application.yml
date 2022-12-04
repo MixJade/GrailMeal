@@ -10,3 +10,6 @@ spring:
 mybatis-plus:
   global-config:
     banner: false
+
+grail:
+  path: C:\MixJade\grailMeal\images\

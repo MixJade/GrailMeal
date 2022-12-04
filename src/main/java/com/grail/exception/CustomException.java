@@ -1,4 +1,4 @@
-package com.grail.common;
+package com.grail.exception;
 
 /**
  * 自定义业务异常类

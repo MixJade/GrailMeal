@@ -1,5 +1,6 @@
-package com.grail.common;
+package com.grail.exception;
 
+import com.grail.common.Result;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

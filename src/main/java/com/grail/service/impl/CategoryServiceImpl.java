@@ -1,7 +1,7 @@
 package com.grail.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.grail.common.CustomException;
+import com.grail.exception.CustomException;
 import com.grail.entity.Category;
 import com.grail.entity.Dish;
 import com.grail.entity.Setmeal;
