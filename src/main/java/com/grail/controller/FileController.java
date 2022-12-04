@@ -77,7 +77,7 @@ public class FileController {
             outputStream.close();
             fileInputStream.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            log.info("未找到相应图片"+name);
         }
     }
 }
