@@ -1,12 +1,15 @@
 package com.grail.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.grail.common.Result;
 import com.grail.dto.DishDto;
 import com.grail.entity.Category;
 import com.grail.entity.Dish;
+import com.grail.entity.DishFlavor;
 import com.grail.service.ICategoryService;
+import com.grail.service.IDishFlavorService;
 import com.grail.service.IDishService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,6 +37,9 @@ public class DishController {
 
     @Resource
     private ICategoryService categoryService;
+
+    @Resource
+    private IDishFlavorService dishFlavorService;
 
     /**
      * 新增菜品
@@ -104,5 +110,38 @@ public class DishController {
         dishService.updateWithFlavor(dishDto);
 
         return Result.success("新增菜品成功");
+    }
+
+    /**
+     * 根据条件查询对应的菜品数据
+     */
+    @GetMapping("/list")
+    public Result<List<DishDto>> list(Dish dish) {
+        log.info("dish:{}", dish);
+        //条件构造器
+        LambdaQueryWrapper<Dish> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.like(StringUtils.isNotEmpty(dish.getName()), Dish::getName, dish.getName());
+        queryWrapper.eq(null != dish.getCategoryId(), Dish::getCategoryId, dish.getCategoryId());
+        //添加条件，查询状态为1（起售状态）的菜品
+        queryWrapper.eq(Dish::getStatus, 1);
+        queryWrapper.orderByDesc(Dish::getUpdateTime);
+
+        List<Dish> dishs = dishService.list(queryWrapper);
+
+        List<DishDto> dishDtos = dishs.stream().map(item -> {
+            DishDto dishDto = new DishDto();
+            BeanUtils.copyProperties(item, dishDto);
+            Category category = categoryService.getById(item.getCategoryId());
+            if (category != null) {
+                dishDto.setCategoryName(category.getName());
+            }
+            LambdaQueryWrapper<DishFlavor> wrapper = new LambdaQueryWrapper<>();
+            wrapper.eq(DishFlavor::getDishId, item.getId());
+
+            dishDto.setFlavors(dishFlavorService.list(wrapper));
+            return dishDto;
+        }).collect(Collectors.toList());
+
+        return Result.success(dishDtos);
     }
 }
