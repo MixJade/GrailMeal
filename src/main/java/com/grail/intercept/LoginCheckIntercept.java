@@ -19,8 +19,8 @@ public class LoginCheckIntercept implements HandlerInterceptor {
         String requestURI = request.getRequestURI();
         log.info("拦截到请求：{}", requestURI);
         // 进行登录判断
-        Object employeeID=request.getSession().getAttribute("employee");
-        if (employeeID!= null) {
+        Object employeeID = request.getSession().getAttribute("employee");
+        if (employeeID != null) {
             Long empId = (Long) employeeID;
             BaseContext.setCurrentId(empId);
             return true;
